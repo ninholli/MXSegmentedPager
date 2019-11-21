@@ -240,6 +240,11 @@
 
 #pragma mark <MXPagerViewDelegate>
 
+- (void)pagerView:(MXPagerView *)pagerView didMoveToPage:(UIView *)page atIndex:(NSInteger)index {
+    [self.segmentedControl selectWithIndex:index animated:YES];
+    [self changedToIndex:index];
+}
+
 - (void)pagerView:(MXPagerView *)pagerView willDisplayPage:(UIView *)page atIndex:(NSInteger)index {
     if ([self.delegate respondsToSelector:@selector(segmentedPager:willDisplayPage:atIndex:)]) {
         [self.delegate segmentedPager:self willDisplayPage:page atIndex:index];
